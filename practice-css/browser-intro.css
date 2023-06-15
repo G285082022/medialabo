@@ -3,10 +3,13 @@ p {
 }
 
 p.info {
-	font-size: 10pt;
+	font-size: small;
+	background-color: #dfdfdf;
 }
 
 h1 {
+	color: white;
+	text-shadow: navy;
 	background-color: #7f7fcf;
 }
 
@@ -16,12 +19,18 @@ h2 {
 }
 
 div#zentai {
-	display: flex;
-	flex-direction: row;
-	width: 1024px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 200px;
 }
 
 div#zentai > div {
-	margin-left: 5px;
-	background-color: #ffefaf;
+	padding: 5px 5px 5px 5px;
+	font-family: cursive;
+	color: #3f3faf;
+	background-color: linear-gradient(white, #ffefaf);
+}
+
+img.icon {
+	float: right
 }
