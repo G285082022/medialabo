@@ -9,8 +9,7 @@ p.info {
 
 h1 {
 	color: white;
-	text-shadow: navy;
-	background-color: #7f7fcf;
+	text-shadow: navy 1px 0 10px;
 }
 
 h2 {
@@ -21,16 +20,26 @@ h2 {
 div#zentai {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	height: 200px;
+	grid-gap: 10px;
+	grid-template-rows: 200px 200px;
 }
 
 div#zentai > div {
-	padding: 5px 5px 5px 5px;
-	font-family: cursive;
-	color: #3f3faf;
-	background-color: linear-gradient(white, #ffefaf);
+	padding: 5px;
 }
 
+div.box h2 {
+	background: linear-gradient(to right, white, #ffefaf);
+	font-family: cursive;
+	color: #3f3faf;
+	border: none;
+}
+
+div.box {
+	background-color: #ffefaf;
+}
+
+
 img.icon {
-	float: right
+	float: right;
 }
