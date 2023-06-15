@@ -3,71 +3,92 @@
     <head>
         <meta charset="utf-8">
         <title>Webコンテンツ作成の成果</title>
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <h1>「Webコンテンツ作成の成果」</h1>
+
+            <div class="border"></div>
+
             <h2>本テーマの学習目的</h2>
-                <ul>
+                <ul id="ulA"">
                     <li>HTML によって Web ページの構造を記述する基本的な方法がわかる</li>
                     <li>CSS によって Web ページの見た目を設定する基本的な方法がわかる</li>
                     <li>JavaScript によって Web ページのインタラクティブな処理を記述する基本的な方法がわかる</li>
                     <li>HTML, CSS, JavaScript の構文リファレンスから、構文の書式や使用方法の情報を入手できる</li>
                     <li>HTML, CSS, JavaScript, 画像・音声・動画ファイルを組み合わせて簡単な Web ページが作成できる</li>
                 </ul>
-   
+
+            <div class="border"></div>  
+
             <h2>プロジェクト課題について</h2>
                 <p>プロジェクト課題では「世界の天気」を実施します。……</p>
-                <p>プロジェクト課題で作成したページ: <a href="project.html" 
+                <p class="item">プロジェクト課題で作成したページ: <a href="project.html" 
                                                   title="プロジェクト課題" 
                                                   target="_blank">project.html</a></p>
 
+            <div class="border"></div>
+
             <h2>数当てゲーム</h2>
                 <p>200文字以上</p>
-                <p>数当てゲームのページ: <!--<a href="" 
+                <p class="item">数当てゲームのページ: <!--<a href="" 
                                         title="数当てゲーム" 
                                         target="_blank">kazuate.html</a>--></p>
 
+            <div class="border"></div>
+
             <h2>毎回の実験で作成したページ</h2>
-                <h3>第1回 WWW と HTML</h3>
-                    <p>今回はWebページとWWWについてと、HTMLを用いてWebページの構造を記述する基本的な方法を学びました。
-                        <br>WebページはHTML, CSS, JavaScript, メディアの4つの部品からなり、WWWによってサーバからWebブラウザにWebページの部品が送られます。送られた部品をWebブラウザが組み立て、Webページを表示します。
-                        <br>HTMLはWebページの構造を記述する言語で、さまざまな要素でつくられます。要素には大きく分けてブロック要素とインライン要素があります。ブロック要素は基本的な構造を決める要素で、インライン要素はブロック要素を修飾してより細かく構造を決める要素です。</p>
-                    <p>演習の成果</p>
-                    <ul>
-                        <li><a href="practice-html/structure.html"
-                               title="演習1-3"
-                               target="_blank">演習1-3: HTML文書の作成</a></li>
-                        <li><a href="practice-html/elements.html"
-                               title="演習1-4"
-                               target="_blank">演習1-4: HTMLのさまざまな要素</a></li>
-                    </ul>
-
-                <h3>第2回 CSS による Web ページの装飾</h3>
-                    <p>100文字以上</p>
-                    <p>演習の成果</p>
-                    <ul>
-                        <li></li>
-                    </ul>
-
-                <h3>第3回 JavaScript の基本</h3>
-                    <p>100文字以上</p>
-                    <p>演習の成果</p>
-                    <ul>
-                        <li></li>
-                    </ul>
-
-                <h3>第4回 DOM と JavaScript</h3>
-                    <p>100文字以上</p>
-                    <p>演習の成果</p>
-                    <ul>
-                        <li></li>
-                    </ul>
-
-                <h3>第5回 イベント処理</h3>
-                    <p>100文字以上</p>
-                    <p>演習の成果</p>
-                    <ul>
-                        <li></li>
-                    </ul>
+                <div class="container">
+                    <div class="box">
+                        <h3>第1回 WWW と HTML</h3>
+                            <p>第1回はWebページとWWWについてと、HTMLを用いてWebページの構造を記述する基本的な方法を学びました。
+                                <br>WebページはHTML, CSS, JavaScript, メディアの4つの部品からなり、WWWによってサーバからWebブラウザにWebページの部品が送られます。送られた部品をWebブラウザが組み立て、Webページを表示します。
+                                <br>HTMLはWebページの構造を記述する言語で、さまざまな要素でつくられます。要素には大きく分けてブロック要素とインライン要素があります。ブロック要素は基本的な構造を決める要素で、インライン要素はブロック要素を修飾してより細かく構造を決める要素です。</p>
+                            <p class="item">演習の成果</p>
+                            <ul class="link">
+                                <li><a href="practice-html/structure.html"
+                                    title="演習1-3"
+                                    target="_blank">演習1-3: HTML文書の作成</a></li>
+                                <li><a href="practice-html/elements.html"
+                                    title="演習1-4"
+                                    target="_blank">演習1-4: HTMLのさまざまな要素</a></li>
+                            </ul>
+                    </div>
+                    <div class="box">
+                        <h3>第2回 CSS による Web ページの装飾</h3>
+                            <p>第2回はCSSを用いてWebページの装飾を記述する基本的な方法を学びました。
+                                <br>CSSはHTMLファイルに適用することでWebページの要素を装飾することができます。今回は、外部スタイルシートのファイルを指定する方法で適応しました。CSSにはさまざまなプロパティがあり、各プロパティに応じたプロパティ値を設定してWebページを装飾します。</p>
+                            <p class="item">演習の成果</p>
+                            <ul class="link">
+                                <li><a href="practice-css/browser-intro.html"
+                                    title="演習2-3"
+                                    target="_blank">演習2-3: ウェブブラウザ説明ページの装飾</a></li>
+                            </ul>
+                    </div>
+                    <div class="box">
+                        <h3>第3回 JavaScript の基本</h3>
+                            <p>100文字以上</p>
+                            <p class="item">演習の成果</p>
+                            <ul class="link">
+                                <li></li>
+                            </ul>
+                    </div>
+                    <div class="box">
+                        <h3>第4回 DOM と JavaScript</h3>
+                            <p>100文字以上</p>
+                            <p class="item">演習の成果</p>
+                            <ul class="link">
+                                <li></li>
+                            </ul>
+                    </div>
+                    <div class="box">
+                        <h3>第5回 イベント処理</h3>
+                            <p>100文字以上</p>
+                            <p class="item">演習の成果</p>
+                            <ul class="link">
+                                <li></li>
+                            </ul>
+                    </div>
+                </div>
     </body>
 </html>
