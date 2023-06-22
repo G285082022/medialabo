@@ -1,8 +1,8 @@
 let heikin = 3.5;
-console.log(Heikin);        // 正しくは heikin
+//console.log(Heikin);        // 正しくは heikin
 
 // (2) 関数名のつづり間違い      → エラー発生
-let h = Math.froor(heikin); // 正しくは floor
+//let h = Math.froor(heikin); // 正しくは floor
 
 // (3) 存在しない配列要素       → undefined　（エラーにならない）
 let ary = ['a', 'b', 'c'];
@@ -18,7 +18,7 @@ console.log(obj.z);         // メンバー z は存在しない
 
 // (6) 初期化していない変数のメンバー   → エラー発生
 let o;
-console.log(o.x);           // oは初期化していない
+//console.log(o.x);           // oは初期化していない
 
 // (7) オブジェクトや配列ではない値のメンバーと要素	→ undefined （エラーにならない）
 let n = 3;
@@ -30,5 +30,5 @@ let obj2 = {
 	mem1: {x:4, y:9},
 	mem2: "abc"
 };
-console.log(obj2.mem0.x);   // obj2.mem0 は存在しない. さらにそのメンバー x を参照しようとする
+//console.log(obj2.mem0.x);   // obj2.mem0 は存在しない. さらにそのメンバー x を参照しようとする
 
