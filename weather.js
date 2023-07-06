@@ -55,58 +55,101 @@ console.log(data.main.humidity);
 console.log(data.wind.speed);
 */
 
-let div = document.querySelector('div#result');
-let h2 = document.createElement('h2');
-let table = document.createElement('table');
-let thead = document.createElement('thead');
-let tbody = document.createElement('tbody');
-let tr_thead = document.createElement('tr');
-let tr_tbody = document.createElement('tr');
+let preId;
+let isDisplayed = false;
+let wrapper;
+let button = document.querySelector('button#search');
+button.addEventListener('click', buttonListener);
 
-let th_wether = document.createElement('th');
-let th_tempMax = document.createElement('th');
-let th_tempMin = document.createElement('th');
-let th_humidity = document.createElement('th');
-let th_windSpeed = document.createElement('th');
+function buttonListener() {
+	let places = document.querySelectorAll('input[name=place]');
+	for (let place of places) {
+		if (place.checked) {
+			id = parseInt(place.value);
+		}
+	}
+	if (isDisplayed) {
+		if (id !== preId) {
+			wrapper.remove();
+			isDisplayed = false;
+			console.log("wrapper removed");
+			displayWether(id);
+		} else {
+			console.log("wether is already displayed");
+		}
+	} else {
+		preId = id;
+		displayWether(id);
+	}
+}
 
-let td_wether = document.createElement('td');
-let td_tempMax = document.createElement('td');
-let td_tempMin = document.createElement('td');
-let td_humidity = document.createElement('td');
-let td_windSpeed = document.createElement('td');
+function displayWether(id) {
+	//一旦北京だけ
+	if (id !== data.id) {
+		console.log("id ≠ data.id displayWether() suspended");
+		return;
+	}
 
-h2.textContent = data.name;
-div.insertAdjacentElement('beforeend', h2);
+	wrapper = document.createElement('div');
+	let div = document.querySelector('div#result');
+	let h2 = document.createElement('h2');
 
-th_wether.textContent = '天気';
-tr_thead.insertAdjacentElement('beforeend', th_wether);
-th_tempMax.textContent = '最高気温';
-tr_thead.insertAdjacentElement('beforeend', th_tempMax);
-th_tempMin.textContent = '最低気温';
-tr_thead.insertAdjacentElement('beforeend', th_tempMin);
-th_humidity.textContent = '湿度';
-tr_thead.insertAdjacentElement('beforeend', th_humidity);
-th_windSpeed.textContent = '風速';
-tr_thead.insertAdjacentElement('beforeend', th_windSpeed);
-thead.insertAdjacentElement('beforeend', tr_thead);
+	let table = document.createElement('table');
+	let thead = document.createElement('thead');
+	let tbody = document.createElement('tbody');
+	let tr_thead = document.createElement('tr');
+	let tr_tbody = document.createElement('tr');
 
-td_wether.textContent = data.weather[0].description;
-tr_tbody.insertAdjacentElement('beforeend', td_wether);
-td_tempMax.textContent = data.main.temp_max;
-tr_tbody.insertAdjacentElement('beforeend', td_tempMax);
-td_tempMin.textContent = data.main.temp_min;
-tr_tbody.insertAdjacentElement('beforeend', td_tempMin);
-td_humidity.textContent = data.main.humidity;
-tr_tbody.insertAdjacentElement('beforeend', td_humidity);
-td_windSpeed.textContent = data.wind.speed;
-tr_tbody.insertAdjacentElement('beforeend', td_windSpeed);
-tbody.insertAdjacentElement('beforeend', tr_tbody);
+	let th_wether = document.createElement('th');
+	let th_tempMax = document.createElement('th');
+	let th_tempMin = document.createElement('th');
+	let th_humidity = document.createElement('th');
+	let th_windSpeed = document.createElement('th');
 
-table.insertAdjacentElement('beforeend', thead);
-table.insertAdjacentElement('beforeend', tbody);
+	let td_wether = document.createElement('td');
+	let td_tempMax = document.createElement('td');
+	let td_tempMin = document.createElement('td');
+	let td_humidity = document.createElement('td');
+	let td_windSpeed = document.createElement('td');
 
-div.insertAdjacentElement('beforeend', table);
+	h2.textContent = data.name;
+	wrapper.insertAdjacentElement('beforeend', h2);
 
+	th_wether.textContent = '天気';
+	tr_thead.insertAdjacentElement('beforeend', th_wether);
+	th_tempMax.textContent = '最高気温';
+	tr_thead.insertAdjacentElement('beforeend', th_tempMax);
+	th_tempMin.textContent = '最低気温';
+	tr_thead.insertAdjacentElement('beforeend', th_tempMin);
+	th_humidity.textContent = '湿度';
+	tr_thead.insertAdjacentElement('beforeend', th_humidity);
+	th_windSpeed.textContent = '風速';
+	tr_thead.insertAdjacentElement('beforeend', th_windSpeed);
+	thead.insertAdjacentElement('beforeend', tr_thead);
+
+	td_wether.textContent = data.weather[0].description;
+	tr_tbody.insertAdjacentElement('beforeend', td_wether);
+	td_tempMax.textContent = data.main.temp_max;
+	tr_tbody.insertAdjacentElement('beforeend', td_tempMax);
+	td_tempMin.textContent = data.main.temp_min;
+	tr_tbody.insertAdjacentElement('beforeend', td_tempMin);
+	td_humidity.textContent = data.main.humidity;
+	tr_tbody.insertAdjacentElement('beforeend', td_humidity);
+	td_windSpeed.textContent = data.wind.speed;
+	tr_tbody.insertAdjacentElement('beforeend', td_windSpeed);
+	tbody.insertAdjacentElement('beforeend', tr_tbody);
+
+	table.insertAdjacentElement('beforeend', thead);
+	table.insertAdjacentElement('beforeend', tbody);
+
+	wrapper.insertAdjacentElement('beforeend', table);
+	
+	div.insertAdjacentElement('beforeend', wrapper);
+
+	isDisplayed = true;
+
+	console.log("displayWether() executed");
+}
 
 
 
