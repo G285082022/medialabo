@@ -31,6 +31,12 @@ li {
     width: fit-content;
 }
 
+ul#p {
+    margin: 0 auto 20px;
+    padding: 10px 40px;
+    width: fit-content;
+}
+
 ul#ul {
     background-color: rgba(135, 207, 235, 25%);
     border-radius: 10px;
@@ -48,6 +54,10 @@ ul.link {
 p {
     margin: 3% 5%;
     width: fit-content;
+}
+
+p#p {
+    margin-bottom: auto;
 }
 
 .item {
