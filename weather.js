@@ -105,6 +105,7 @@ const allSpot = document.querySelectorAll('div.spot');
 const allInfo = document.querySelectorAll('div.info');
 
 const heading = document.querySelector('h1');
+const desc = document.querySelector('p#desc');
 const allTag = document.querySelectorAll('p.tag');
 
 const iconList = [];
@@ -376,6 +377,9 @@ function fixFontSizeAll() {
 
     console.log('heading のフォントサイズ修正');
     fixFontSize(heading, 150);
+
+	console.log('\ndesc のフォントサイズ修正');
+    fixFontSize(desc, 60);
 
     console.log('\ntag のフォントサイズ修正');
     allTag.forEach(tag => fixFontSize(tag, 60));

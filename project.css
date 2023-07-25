@@ -1,20 +1,33 @@
 body {
-    margin: 0 20px;
+    margin: 0;
     background-color: lightblue;
-    text-shadow: -1px -1px 3px white, -1px 0 3px white, -1px 1px 3px white,
-                    0 -1px 3px white,                        0 1px 3px white,
-                  1px -1px 3px white,  1px 0 3px white,  1px 1px 3px white;
+    text-shadow: -1px -1px 1px white, -1px 0 1px white, -1px 1px 1px white,
+                    0 -1px 1px white,                        0 1px 1px white,
+                   1px -1px 1px white,  1px 0 1px white,  1px 1px 1px white;
 }
 
 h1 {
-    margin: 15px auto 5px;
+    margin: 2% auto;
     width: fit-content;
-    border-bottom: 3px solid rgba(0, 0, 255, 30%);
+    text-shadow: -1px -1px 3px white, -1px 0 3px white, -1px 1px 3px white,
+                    0 -1px 3px white,                        0 1px 3px white,
+                  1px -1px 3px white,  1px 0 3px white,  1px 1px 3px white;
     position: absolute;
     top: 0;
     right: 0;
     left: 0 ;
+    z-index: 2;
+}
 
+p#desc {
+    margin: 7% auto;
+    width: fit-content;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
 }
 
 img#worldmap {
@@ -46,9 +59,6 @@ p.tag {
     margin: 0 auto;
     width: fit-content;
     font-weight: bold;
-    text-shadow: -1px -1px 1px white, -1px 0 1px white, -1px 1px 1px white,
-                    0 -1px 1px white,                        0 1px 1px white,
-                  1px -1px 1px white,  1px 0 1px white,  1px 1px 1px white;
 }
 
 div.icon_wrapper {
