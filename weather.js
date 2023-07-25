@@ -93,7 +93,7 @@ const infoPosList = [
     [0.018, 0.155],     // i_london
     [0.032, 0.338],     // i_paris
     [0.862, 0.651],     // i_rio_de_janeiro
-    [0.819, 0.235],      // i_new_york
+    [0.819, 0.235],     // i_new_york
     [0.692, 0.265]   	// i_los_angeles
 ];
 
@@ -125,7 +125,7 @@ document.querySelectorAll('div.icon_wrapper').forEach(
 );
 
 window.onresize = fixElements;
-fixElements();
+worldmap.onload = fixElements;
 
 // 初期化のリクエストを送る
 function sendInitRequest(icon_wrapeer) {
@@ -364,7 +364,6 @@ function fixPositionAll() {
 
 // 位置を修正する
 function fixPosition(elem, xRatio, yRatio, size) {
-	console.log(worldmap.height + ',' + worldmap.width);
     elem.style.top = worldmap.height * yRatio + 'px';
     elem.style.left = worldmap.width * xRatio + 'px';
     elem.style.width = size * worldmap.width / worldmap.naturalWidth + 'px';
