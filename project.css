@@ -1,35 +1,134 @@
 body {
     margin: 0 20px;
-}
-
-.border {
-    border-bottom: 5px dashed skyblue;
+    background-color: lightblue;
+    text-shadow: -1px -1px 3px white, -1px 0 3px white, -1px 1px 3px white,
+                    0 -1px 3px white,                        0 1px 3px white,
+                  1px -1px 3px white,  1px 0 3px white,  1px 1px 3px white;
 }
 
 h1 {
+    margin: 15px auto 5px;
     width: fit-content;
-    margin: 15px auto;
     border-bottom: 3px solid rgba(0, 0, 255, 30%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0 ;
+
+}
+
+img#worldmap {
+    pointer-events: none;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+div.spot {
+    pointer-events: none;
+    background-color: red;
+    border: 0 solid white;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+div.info {
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+}
+
+p.tag {
+    pointer-events: none;
+    margin: 0 auto;
+    width: fit-content;
+    font-weight: bold;
+    text-shadow: -1px -1px 1px white, -1px 0 1px white, -1px 1px 1px white,
+                    0 -1px 1px white,                        0 1px 1px white,
+                  1px -1px 1px white,  1px 0 1px white,  1px 1px 1px white;
+}
+
+div.icon_wrapper {
+    pointer-events: all ;
+    margin: auto;
+    width: 60%;
+    height: 60%;
+    border-radius: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+img.clear {
+    pointer-events: none;
+    width: 100%;
+    background-color: orangered;
+    border: 0 solid white;
+    border-radius: inherit;
+    box-sizing: border-box;
+}
+
+img.clouds {
+    pointer-events: none;
+    width: 100%;
+    background-color: silver;
+    border: 0 solid white;
+    border-radius: inherit;
+    box-sizing: border-box;
+}
+
+img.rain {
+    pointer-events: none;
+    width: 100%;
+    background-color: dodgerblue;
+    border: 0 solid white;
+    border-radius: inherit;
+    box-sizing: border-box;
+}
+
+img.mist {
+    pointer-events: none;
+    width: 100%;
+    background-color: skyblue;
+    border: 0 solid white;
+    border-radius: inherit;
+    box-sizing: border-box;
+}
+
+div#result {
+    margin: auto;
+    width: fit-content;
+    background-color: white;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    left: 0;
+    z-index: 3;
 }
 
 h2 {
+    margin: 20px auto 15px;
     padding: 3px 8px;
     width: fit-content;
-    margin: 20px auto 15px;
     border: 5px solid skyblue;
     border-radius: 10px;
 }
 
-table {
+table {    
+    margin: 0 auto;
+    width: fit-content;
     border:3px solid skyblue;
     border-radius: 10px;
     border-collapse: collapse;
-    margin: 0 auto;
-    width: fit-content;
 }
 
-td, th {
+td, th {   
+    width: fit-content;
     border: 3px solid skyblue;
     text-align: center;
-    width: fit-content;
 }

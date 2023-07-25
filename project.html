@@ -1,50 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>プロジェクト課題</title>
-        <link rel="stylesheet" href="project.css">
+
+<head>
+    <meta charset="utf-8">
+    <title>プロジェクト課題</title>
+    <link rel="stylesheet" href="project.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="weather.js" defer></script>
-    </head>
-    <body>
-        <h1>世界の天気</h1>
-        <p>
-            <input type="radio" name="place" id="cairo" value="360630">
-            <label for="cairo">カイロ(エジプト)</label></p>
-        <p>
-            <input type="radio" name="place" id="moscow" value="524901">
-            <label for="moscow">モスクワ(ロシア)</label></p>
-        <p>
-            <input type="radio" name="place" id="johannesburg" value="993800">
-            <label for="johannesburg">ヨハネスブルク(南アフリカ)</label></p>
-        <p>
-            <input type="radio" name="place" id="beijing" value="1816670">
-            <label for="beijing">北京(中華人民共和国)</label></p>
-        <p>
-            <input type="radio" name="place" id="tokyo" value="1850147">
-            <label for="tokyo">東京(日本)</label></p>
-        <p>
-            <input type="radio" name="place" id="singapore" value="1880252">
-            <label for="singapore">シンガポール</label></p>
-        <p>
-            <input type="radio" name="place" id="sydney" value="2147714">
-            <label for="sydney">シドニー(オーストラリア)</label></p>
-        <p>
-            <input type="radio" name="place" id="london" value="2643743">
-            <label for="london">ロンドン(イギリス)</label></p>
-        <p>
-            <input type="radio" name="place" id="paris" value="2968815">
-            <label for="paris">パリ(フランス)</label></p>
-        <p>
-            <input type="radio" name="place" id="rio_de_janeiro" value="3451189">
-            <label for="rio_de_janeiro">リオデジャネイロ(ブラジル)</label></p>
-        <p>
-            <input type="radio" name="place" id="new_york" value="5128581">
-            <label for="new_york">ニューヨーク(アメリカ合衆国)</label></p>
-        <p>
-            <input type="radio" name="place" id="los_angeles" value="5368361">
-            <label for="new_york">ロサンゼルス(アメリカ合衆国)</label></p>
-        <button id="search">検索</button>
-        <div id="result"></div> 
-    </body>
+</head>
+
+<body>
+    <h1 id="heading">世界の天気</h1>
+    <img id="worldmap" src="worldmap.png">
+
+    <div class="spot" id="s_cairo"></div>
+    <div class="info" id="i_cairo">
+        <p class="tag" id="t_cairo">カイロ</p>
+        <div class="icon_wrapper" id="cairo"></div>
+    </div>
+
+    <div class="spot" id="s_moscow"></div>
+    <div class="info" id="i_moscow">
+        <p class="tag" id="t_moscow">モスクワ</p>
+        <div class="icon_wrapper" id="moscow"></div>
+    </div>
+
+    <div class="spot" id="s_johannesburg"> </div>
+    <div class="info" id="i_johannesburg">
+        <p class="tag" id="t_johannesburg">ヨハネスブルク</p>
+        <div class="icon_wrapper" id="johannesburg"></div>
+    </div>
+
+    <div class="spot" id="s_beijing"></div>
+    <div class="info" id="i_beijing">
+        <p class="tag" id="t_beijing">北京</p>
+        <div class="icon_wrapper" id="beijing"></div>
+    </div>
+
+    <div class="spot" id="s_tokyo"></div>
+    <div class="info" id="i_tokyo">
+        <p class="tag" id="t_tokyo">東京</p>
+        <div class="icon_wrapper" id="tokyo"></div>
+    </div>
+
+    <div class="spot" id="s_singapore"></div>
+    <div class="info" id="i_singapore">
+        <p class="tag" id="t_singapore">シンガポール</p>
+        <div class="icon_wrapper" id="singapore"></div>
+    </div>
+
+    <div class="spot" id="s_sydney"></div>
+    <div class="info" id="i_sydney">
+        <p class="tag" id="i_sydney">シドニー</p>
+        <div class="icon_wrapper" id="sydney"></div>
+    </div>
+
+    <div class="spot" id="s_london"></div>
+    <div class="info" id="i_london">
+        <p class="tag" id="t_london">ロンドン</p>
+        <div class="icon_wrapper" id="london"></div>
+    </div>
+
+    <div class="spot" id="s_paris"></div>
+    <div class="info" id="i_paris">
+        <p class="tag" id="t_paris">パリ</p>
+        <div class="icon_wrapper" id="paris"></div>
+    </div>
+
+    <div class="spot" id="s_rio_de_janeiro"></div>
+    <div class="info" id="i_rio_de_janeiro">
+        <p class="tag" id="t_rio_de_janeiro">リオデジャネイロ</p>
+        <div class="icon_wrapper" id="rio_de_janeiro"></div>
+    </div>
+
+    <div class="spot" id="s_new_york"></div>
+    <div class="info" id="i_new_york">
+        <p class="tag" id="t_new_york">ニューヨーク</p>
+        <div class="icon_wrapper" id="new_york"></div>
+    </div>
+
+    <div class="spot" id="s_los_angeles"></div>
+    <div class="info" id="i_los_angeles">
+        <p class="tag" id="t_los_angeles">ロサンゼルス</p>
+        <div class="icon_wrapper" id="los_angeles"></div>
+    </div>
+
+    <div id="result"></div>
+</body>
+
 </html>
