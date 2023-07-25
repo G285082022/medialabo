@@ -364,6 +364,7 @@ function fixPositionAll() {
 
 // 位置を修正する
 function fixPosition(elem, xRatio, yRatio, size) {
+	console.log(worldmap.height + ',' + worldmap.width);
     elem.style.top = worldmap.height * yRatio + 'px';
     elem.style.left = worldmap.width * xRatio + 'px';
     elem.style.width = size * worldmap.width / worldmap.naturalWidth + 'px';
