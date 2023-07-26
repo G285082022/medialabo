@@ -1,4 +1,4 @@
-/* 一応残しておく
+/* データ構造確認用
 let data = {
 	"coord": {
 		"lon": 116.3972,
@@ -83,7 +83,7 @@ const spotPosList = [
     [0.738, 0.405]      // s_los_angeles
 ];
 const infoPosList = [ 
-    [0.145, 0.357],     // i_cairo
+    [0.144, 0.357],     // i_cairo
     [0.134, 0.12],      // i_moscow
     [0.109, 0.569],     // i_johannesburg
     [0.34, 0.235],      // i_beijing
@@ -97,7 +97,26 @@ const infoPosList = [
     [0.692, 0.265]   	// i_los_angeles
 ];
 
+// ログにボーダーラインを引くために用意
 const logBorder = '--------------------------------------------------------------------------------';
+
+// [ 都市ID, 通信で得たデータ ]
+// 通信で得た天気データを保持する配列
+// 初期化時に天気データを格納する
+const dataList = [
+	[360630],
+	[524901],
+	[993800],
+	[1816670],
+	[1850147],
+	[1880252],
+	[2147714],
+	[2643743],
+	[2968815],
+	[3451189],
+	[5128581],
+	[5368361]
+];
 
 const worldmap = document.querySelector('img#worldmap');
 
@@ -108,18 +127,22 @@ const heading = document.querySelector('h1');
 const desc = document.querySelector('p#desc');
 const allTag = document.querySelectorAll('p.tag');
 
+const overlay = document.querySelector('div#puw_overlay');
+const popUpWindow = document.querySelector('div#pop_up_window');
+
+const tableHeading = document.querySelector('h2');
+const table = document.querySelector('table');
+const allTh = document.querySelectorAll('th');
+const allTd = document.querySelectorAll('td');
+
 const iconList = [];
 
-let firstInitIsFin = false;
+let firstShowIconIsFin = false;
 let allInitIsFin = false;
-
-let preId;
-let isDisplayed = false;
-let wrapper;
 
 document.querySelectorAll('div.icon_wrapper').forEach(
 	icon_wrapper => {
-		icon_wrapper.addEventListener('click', sendDetailRequest);
+		icon_wrapper.addEventListener('click', showDerail);
 		sendInitRequest(icon_wrapper);
 	}
 );
@@ -127,25 +150,38 @@ document.querySelectorAll('div.icon_wrapper').forEach(
 window.onresize = fixElements;
 worldmap.onload = fixElements;
 
+overlay.addEventListener('click', invisOverlay);
+popUpWindow.addEventListener('click', event => event.stopPropagation());
+
+
+
 // 初期化のリクエストを送る
 function sendInitRequest(icon_wrapeer) {
     let id;
 	for (i of idList) {
 		if (i[0] == icon_wrapeer.id) {
 			id = i[1];
+			break;
 		}
 	}
     let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/' + id + '.json';
 
     axios.get(url)
-        .then(showIcon)     // 通信成功
-        .catch(showError)   // 通信失敗
+        .then(showIcon)    		// 通信成功
+        .catch(showInitError)   // 通信失敗
         .then(finishInit);      // 通信の最後の処理
+	
     console.log('id:' + icon_wrapeer.id + ' の初期化を開始しました');
 }
 
 // 天気のアイコンを作成・表示する
 function showIcon(resp) {
+	// ログのボーダーラインを表示
+	if (!firstShowIconIsFin) {
+        firstShowIconIsFin = true;
+        console.log(logBorder);
+    }
+
     // サーバから送られてきたデータを出力
     let data = resp.data;
 
@@ -154,12 +190,22 @@ function showIcon(resp) {
         data = JSON.parse(data);
     }
 
+	// dataListに天気データを格納
+	for (d of dataList) {
+		if (d[0] == data.id) {
+			d[1] = data;
+			console.log('dataList の id:' + d[0] + ' に天気データを格納しました');
+			break;
+		}
+	}
+
 	let icon_wrapeer;
     let id;
 	for (i of idList) {
 		if (i[1] == data.id) {
 			icon_wrapeer = document.getElementById(i[0]);
             id = i[0];
+			break;
 		}
 	}
 
@@ -187,14 +233,18 @@ function showIcon(resp) {
     icon.setAttribute('id', 'icon_' + id);
     icon_wrapeer.insertAdjacentElement('beforeend', icon);
     iconList.push(icon);
+
+	console.log('天気アイコン(id:' + icon.id + ')を表示しました');
+}
+
+// 通信エラーが発生した時の処理
+function showInitError(err) {
+	console.log('初期化実行中にエラーが発生しました');
+    console.log(err);
 }
 
 // 通信の最後にいつも実行する処理
 function finishInit() {
-    if (!firstInitIsFin) {
-        firstInitIsFin = true;
-        console.log(logBorder);
-    }
     for (i of idList) {
         for (icon of iconList) {
             if (icon.id == 'icon_' + i[0]) {
@@ -207,117 +257,52 @@ function finishInit() {
     }
     console.log('Ajax 通信が終了しました');
     if (allInitIsFin) {
-        console.log('全ての初期化が終了しました');
+        console.log('\n全ての初期化が終了しました');
         fixBorderWidthAll();
     }
 }
 
-function sendDetailRequest(event) {
+function showDerail(event) {
 	console.log(logBorder);
+
 	let id;
 	for (i of idList) {
 		if (i[0] == event.target.id) {
 			id = i[1];
+			break;
 		}
 	}
-	if (isDisplayed) {
-		if (id == preId) {
-			console.log("天気の詳細はすでに表示されています");
-			return;
-		} else {
-			wrapper.remove();
-			isDisplayed = false;
-			console.log("wrapper を削除しました");
+
+	let data
+	for (d of dataList) {
+		if (d[0] == id) {
+			data = d[1];
+			break;
 		}
 	}
-	preId = id;
-    
-    let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/' + id + '.json';
 
-    axios.get(url)
-        .then(showDerail)   // 通信成功
-        .catch(showError)   // 通信失敗
-        .then(finish);      // 通信の最後の処理
-}
+	let tag;
+	for (i of idList) {
+		if (i[1] == id) {
+			tag = document.getElementById('t_' + i[0]);
+			break;
+		}
+	}
 
-function showDerail(resp) {
-    // サーバから送られてきたデータを出力
-    let data = resp.data;
-
-    // data が文字列型なら，オブジェクトに変換する
-    if (typeof data === 'string') {
-        data = JSON.parse(data);
-    }
-
-	wrapper = document.createElement('div');
-	let div = document.querySelector('div#result');
-	let h2 = document.createElement('h2');
-
-	let table = document.createElement('table');
-	let thead = document.createElement('thead');
-	let tbody = document.createElement('tbody');
-	let tr_thead = document.createElement('tr');
-	let tr_tbody = document.createElement('tr');
-
-	let th_wether = document.createElement('th');
-	let th_tempMax = document.createElement('th');
-	let th_tempMin = document.createElement('th');
-	let th_humidity = document.createElement('th');
-	let th_windSpeed = document.createElement('th');
-
-	let td_wether = document.createElement('td');
-	let td_tempMax = document.createElement('td');
-	let td_tempMin = document.createElement('td');
-	let td_humidity = document.createElement('td');
-	let td_windSpeed = document.createElement('td');
-
-	h2.textContent = data.name;
-	wrapper.insertAdjacentElement('beforeend', h2);
-
-	th_wether.textContent = '天気';
-	tr_thead.insertAdjacentElement('beforeend', th_wether);
-	th_tempMax.textContent = '最高気温';
-	tr_thead.insertAdjacentElement('beforeend', th_tempMax);
-	th_tempMin.textContent = '最低気温';
-	tr_thead.insertAdjacentElement('beforeend', th_tempMin);
-	th_humidity.textContent = '湿度';
-	tr_thead.insertAdjacentElement('beforeend', th_humidity);
-	th_windSpeed.textContent = '風速';
-	tr_thead.insertAdjacentElement('beforeend', th_windSpeed);
-	thead.insertAdjacentElement('beforeend', tr_thead);
-
-	td_wether.textContent = data.weather[0].main;
-	tr_tbody.insertAdjacentElement('beforeend', td_wether);
-	td_tempMax.textContent = data.main.temp_max;
-	tr_tbody.insertAdjacentElement('beforeend', td_tempMax);
-	td_tempMin.textContent = data.main.temp_min;
-	tr_tbody.insertAdjacentElement('beforeend', td_tempMin);
-	td_humidity.textContent = data.main.humidity;
-	tr_tbody.insertAdjacentElement('beforeend', td_humidity);
-	td_windSpeed.textContent = data.wind.speed;
-	tr_tbody.insertAdjacentElement('beforeend', td_windSpeed);
-	tbody.insertAdjacentElement('beforeend', tr_tbody);
-
-	table.insertAdjacentElement('beforeend', thead);
-	table.insertAdjacentElement('beforeend', tbody);
-
-	wrapper.insertAdjacentElement('beforeend', table);
+	let dataArray = [
+		data.weather[0].description,
+		data.main.temp_max + '℃',
+		data.main.temp_min + '℃',
+		data.main.humidity + '%',
+		data.wind.speed + 'm/s'
+	];
 	
-	div.insertAdjacentElement('beforeend', wrapper);
+	overlay.style.display = 'block';
 
-	isDisplayed = true;
+	tableHeading.textContent = tag.textContent + 'の天気';
+	allTd.forEach((td, index) => td.textContent = dataArray[index]);
 
-	console.log(data.name + " の天気の詳細を表示しました");
-}
-
-// 通信エラーが発生した時の処理
-function showError(err) {
-    console.log(err);
-}
-
-// 通信の最後にいつも実行する処理
-function finish() {
-    console.log('Ajax 通信が終了しました');
+	console.log(tag.textContent + " の天気の詳細を表示しました");
 }
 
 // 修正関数のラッピング
@@ -327,6 +312,7 @@ function fixElements() {
     fixFontSizeAll();
 }
 
+// 全てのボーダーラインの幅を修正する
 function fixBorderWidthAll() {
     console.log(logBorder);
 
@@ -339,6 +325,15 @@ function fixBorderWidthAll() {
 
     console.log('\nspot のボーダーライン幅修正');
     allSpot.forEach(spot => fixBorderWidth(spot, 10));
+
+	console.log('\ntable のボーダーライン幅修正');
+    fixBorderWidth(table, 12);
+
+	console.log('\nth のボーダーライン幅修正');
+    allTh.forEach(th => fixBorderWidth(th, 12));
+
+	console.log('\ntd のボーダーライン幅修正');
+    allTd.forEach(td => fixBorderWidth(td, 12));
 }
 
 // ボーダーラインの幅を修正する
@@ -383,12 +378,27 @@ function fixFontSizeAll() {
 
     console.log('\ntag のフォントサイズ修正');
     allTag.forEach(tag => fixFontSize(tag, 60));
+
+	console.log('\ntableHeading のフォントサイズ修正');
+    fixFontSize(tableHeading, 100);
+
+	console.log('\nth のフォントサイズ修正');
+    allTh.forEach(th => fixFontSize(th, 60));
+
+	console.log('\ntd のフォントサイズ修正');
+    allTd.forEach(td => fixFontSize(td, 60));
 }
 
 // フォントサイズを修正する
 function fixFontSize(elem, size) {
     elem.style.fontSize = size * worldmap.width / worldmap.naturalWidth + 'px';
     console.log('id:' + elem.id + ', font-size:' + elem.style.fontSize);
+}
+
+function invisOverlay() {
+	overlay.style.display = 'none';
+
+	console.log('天気の詳細を非表示にしました');
 }
 
 
