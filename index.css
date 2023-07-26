@@ -37,7 +37,7 @@ ul#p {
     width: fit-content;
 }
 
-ul#ul {
+ul.ul {
     background-color: rgba(135, 207, 235, 25%);
     border-radius: 10px;
     margin: 0 auto 20px;
@@ -56,7 +56,7 @@ p {
     width: fit-content;
 }
 
-p#p {
+p.p {
     margin-bottom: auto;
 }
 

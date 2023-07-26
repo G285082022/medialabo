@@ -1,151 +1,176 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Webコンテンツ作成の成果</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <h1>「Webコンテンツ作成の成果」</h1>
 
-        <div class="border"></div>
+<head>
+    <meta charset="utf-8">
+    <title>Webコンテンツ作成の成果</title>
+    <link rel="stylesheet" href="index.css">
+</head>
 
-        <h2>本テーマの学習目的</h2>
-        <div class="container1">
-            <div class="box">
-                <p id="p">本テーマの学習目的は以下の5つです。</p>
-                <ul id="p">
-                    <li>HTML によって Web ページの構造を記述する基本的な方法がわかる</li>
-                    <li>CSS によって Web ページの見た目を設定する基本的な方法がわかる</li>
-                    <li>JavaScript によって Web ページのインタラクティブな処理を記述する基本的な方法がわかる</li>
-                    <li>HTML, CSS, JavaScript の構文リファレンスから、構文の書式や使用方法の情報を入手できる</li>
-                    <li>HTML, CSS, JavaScript, 画像・音声・動画ファイルを組み合わせて簡単な Web ページが作成できる</li>
-                </ul>
-            </div>
+<body>
+    <h1>「Webコンテンツ作成の成果」</h1>
+
+    <div class="border"></div>
+
+    <h2>本テーマの学習目的</h2>
+    <div class="container1">
+        <div class="box">
+            <p class="p">本テーマの学習目的は以下の5つです。</p>
+            <ul class="p">
+                <li>HTML によって Web ページの構造を記述する基本的な方法がわかる</li>
+                <li>CSS によって Web ページの見た目を設定する基本的な方法がわかる</li>
+                <li>JavaScript によって Web ページのインタラクティブな処理を記述する基本的な方法がわかる</li>
+                <li>HTML, CSS, JavaScript の構文リファレンスから、構文の書式や使用方法の情報を入手できる</li>
+                <li>HTML, CSS, JavaScript, 画像・音声・動画ファイルを組み合わせて簡単な Web ページが作成できる</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="border"></div>
+
+    <div class="title">
+        <h2>プロジェクト課題について</h2>
+        <h2>数当てゲーム</h2>
+    </div>
+
+    <div class="container2">
+        <div class="box">
+            <p>プロジェクト課題では「世界の天気」を実施しました。できるだけわかりやすく、シンプルになるよう心がけて制作しました。
+                <br>Webページ全体に世界地図を表示し、サーバーから得られる全ての地点の天気を、世界地図の場所通りにアイコンで表示します。
+                ここで表示されるアイコンは空模様しかわからないので具体的な気温や湿度は各地点に表示されたアイコンをクリックすることで表示するようにしました。
+                <br>こうすることで一目で世界各地の天気を知ることができます。また、細かい情報はアイコンをクリックするという直感的な操作で行えるため、わかりやすくやりやすい操作を実現できました。
+            </p>
+            <p class="item">プロジェクト課題で作成したページ</p>
+            <ul class="link">
+                <li><a href="project.html" title="プロジェクト課題" target="_blank">project.html</a></li>
+            </ul>
         </div>
 
-        <div class="border"></div>  
-        
-        <div class="title">
-            <h2>プロジェクト課題について</h2>
-            <h2>数当てゲーム</h2>
+        <div class="box">
+            <p>数当てゲームでは第3回, 第4回, 第5回と分けて実習を行いました。
+                <br>第3回では、JavaScriptでMath.random()を用いて答えを生成した後、ユーザの予想が合っているかどうかの判定を行うhantei()を作成しました。第3回時点ではまだWebページには出力せず、コンソールに出力しました。
+                <br>第4回では、DOMを用いて判定結果をWebページに出力するようにしました。p要素の中にあるspan要素に回数と答えを出力します。
+                <br>第5回では、Webページにラベルとテキストボックス、ボタン要素を追加し、イベント処理を記述しました。hantei()をテキストボックスから予想を取得するようにしまし、ボタンのイベントハンドラとして登録しました。
+            </p>
+            <p class="item">数当てゲームのページ</p>
+            <ul class="link">
+                <li><a href="kazuate.html" title="数当てゲーム" target="_blank">kazuate.html</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="border"></div>
+
+    <h2>毎回の実験で作成したページ</h2>
+    <div class="container2">
+        <div class="box">
+            <h3>第1回 WWW と HTML</h3>
+            <p>第1回はWebページとWWWについてと、HTMLを用いてWebページの構造を記述する基本的な方法を学びました。
+                <br>WebページはHTML, CSS, JavaScript,
+                メディアの4つの部品からなり、WWWによってサーバからWebブラウザにWebページの部品が送られます。送られた部品をWebブラウザが組み立て、Webページを表示します。
+                <br>HTMLはWebページの構造を記述する言語で、さまざまな要素でつくられます。要素には大きく分けてブロック要素とインライン要素があります。ブロック要素は基本的な構造を決める要素で、インライン要素はブロック要素を修飾してより細かく構造を決める要素です。
+            </p>
+            <p class="item">演習の成果</p>
+            <ul class="link">
+                <li><a href="practice-html/structure.html" title="演習1-3" target="_blank">演習1-3: HTML文書の作成</a></li>
+                <li><a href="practice-html/elements.html" title="演習1-4" target="_blank">演習1-4: HTMLのさまざまな要素</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>第2回 CSS による Web ページの装飾</h3>
+            <p>第2回はCSSを用いてWebページの装飾を記述する基本的な方法を学びました。
+                <br>CSSはHTMLファイルに適用することでWebページの要素を装飾することができます。今回は、外部スタイルシートのファイルを指定する方法で適応しました。CSSにはさまざまなプロパティがあり、各プロパティに応じたプロパティ値を設定してWebページを装飾します。
+            </p>
+            <p class="item">演習の成果</p>
+            <ul class="link">
+                <li><a href="practice-css/browser-intro.html" title="演習2-3" target="_blank">演習2-3: ウェブブラウザ説明ページの装飾</a>
+                </li>
+            </ul>
         </div>
 
-        <div class="container2">
-            <div class="box">
-                <p>プロジェクト課題では「世界の天気」を実施します。…… 200文字以上</p>
-                <p class="item">プロジェクト課題で作成したページ</p>
-                <ul class="link">
-                    <li><a href="project.html" 
-                        title="プロジェクト課題" 
-                        target="_blank">project.html</a></li>
-                </ul>
-            </div>
-            
-            <div class="box">
-                <p>数当てゲームでは第3回, 第4回, 第5回と分けて実習を行いました。
-                    <br>第3回では、JavaScriptでMath.random()を用いて答えを生成した後、ユーザの予想が合っているかどうかの判定を行うhantei()を作成しました。第3回時点ではまだWebページには出力せず、コンソールに出力しました。
-                    <br>第4回では、DOMを用いて判定結果をWebページに出力するようにしました。p要素の中にあるspan要素に回数と答えを出力します。
-                    <br>第5回では、Webページにラベルとテキストボックス、ボタン要素を追加し、イベント処理を記述しました。hantei()をテキストボックスから予想を取得するようにしまし、ボタンのイベントハンドラとして登録しました。
-                </p>
-                <p class="item">数当てゲームのページ</p>
-                <ul class="link">
-                    <li><a href="kazuate.html" 
-                        title="数当てゲーム" 
-                        target="_blank">kazuate.html</a></li>
-                </ul>
-            </div>
+        <div class="box">
+            <h3>第3回 JavaScript の基本</h3>
+            <p>第3回はJavaScriptを用いて動きのあるWebページを実現するための基礎的なことを学びました。
+                <br>JavaScriptはCSSと同様にHTMLファイルに適用することでWebページに’動き’を追加することができます。今回は、CSSと同様に外部指定でHTMLファイルに適用しました。その際にdefer属性を指定しないとプログラムが正しく動作しないことがあります。
+                <br>Javaと構文は似ていますが、Javaとは違いインタプリタ言語で1行ずつ読み取りながら実行されます。コンパイルを行わないため、コンパイル言語と比較してエラーに気づきづらいです。
+            </p>
+            <p class="item">演習の成果</p>
+            <ul class="link">
+                <li><a href="practice-js/obj-practice.html" title="演習3-6" target="_blank">演習3-6: オブジェクトの参照</a></li>
+            </ul>
         </div>
 
-        <div class="border"></div>
-
-        <h2>毎回の実験で作成したページ</h2>
-        <div class="container2">
-            <div class="box">
-                <h3>第1回 WWW と HTML</h3>
-                <p>第1回はWebページとWWWについてと、HTMLを用いてWebページの構造を記述する基本的な方法を学びました。
-                    <br>WebページはHTML, CSS, JavaScript, メディアの4つの部品からなり、WWWによってサーバからWebブラウザにWebページの部品が送られます。送られた部品をWebブラウザが組み立て、Webページを表示します。
-                    <br>HTMLはWebページの構造を記述する言語で、さまざまな要素でつくられます。要素には大きく分けてブロック要素とインライン要素があります。ブロック要素は基本的な構造を決める要素で、インライン要素はブロック要素を修飾してより細かく構造を決める要素です。</p>
-                <p class="item">演習の成果</p>
-                <ul class="link">
-                    <li><a href="practice-html/structure.html"
-                        title="演習1-3"
-                        target="_blank">演習1-3: HTML文書の作成</a></li>
-                    <li><a href="practice-html/elements.html"
-                        title="演習1-4"
-                        target="_blank">演習1-4: HTMLのさまざまな要素</a></li>
-                </ul>
-            </div>
-            <div class="box">
-                <h3>第2回 CSS による Web ページの装飾</h3>
-                <p>第2回はCSSを用いてWebページの装飾を記述する基本的な方法を学びました。
-                    <br>CSSはHTMLファイルに適用することでWebページの要素を装飾することができます。今回は、外部スタイルシートのファイルを指定する方法で適応しました。CSSにはさまざまなプロパティがあり、各プロパティに応じたプロパティ値を設定してWebページを装飾します。</p>
-                <p class="item">演習の成果</p>
-                <ul class="link">
-                    <li><a href="practice-css/browser-intro.html"
-                        title="演習2-3"
-                        target="_blank">演習2-3: ウェブブラウザ説明ページの装飾</a></li>
-                </ul>
-            </div>
-
-            <div class="box">
-                <h3>第3回 JavaScript の基本</h3>
-                <p>第3回はJavaScriptを用いて動きのあるWebページを実現するための基礎的なことを学びました。
-                    <br>JavaScriptはCSSと同様にHTMLファイルに適用することでWebページに’動き’を追加することができます。今回は、CSSと同様に外部指定でHTMLファイルに適用しました。その際にdefer属性を指定しないとプログラムが正しく動作しないことがあります。
-                    <br>Javaと構文は似ていますが、Javaとは違いインタプリタ言語で1行ずつ読み取りながら実行されます。コンパイルを行わないため、コンパイル言語と比較してエラーに気づきづらいです。
-                </p>
-                <p class="item">演習の成果</p>
-                <ul class="link">
-                    <li><a href="practice-js/obj-practice.html"
-                        title="演習3-6"
-                        target="_blank">演習3-6: オブジェクトの参照</a></li>
-                </ul>
-            </div>
-
-            <div class="box">
-                <h3>第4回 DOM と JavaScript</h3>
-                <p>第4回はDOMを用いたWebページの編集のしかたを学びました。
-                    <br>DOMを使えばHTMLやSCCをプログラムで編集できるので、次の回で習うイベント処理と合わせればWebページに動的処理を実現できます。基本的にDOMを使う上では、HTMLファイルで各要素にidやclassを設定します。
-                    <br>DOMはWebページを変更してしまうため、DOMを実装する際はエディターでJSファイルを直接編集せずに、先にWeb開発ツールを用いて動作確認をしたほうがいい。</p>
-                <p class="item">演習の成果</p>
-                <ul class="link">
-                    <li><a href="practice-dom/dom-exercise.html"
-                        title="演習4-2~4-5"
-                        target="_blank">演習4-2~4-5: DOMプログラミング</a></li>
-                </ul>
-            </div>
-            
-            <div class="box">
-                <h3>第5回 イベント処理</h3>
-                <p>第5回はWebページのイベント処理について学びました。
-                    <br>イベント処理と第4回で学んだDOMを用いることで動きのあるWebページを作成することができます。
-                    <br>イベント処理はWebページの要素(ボタンやセルなど)にイベントハンドラを登録することで実現します。イベントハンドラの名前はそのイベントハンドラの処理がわかるような名前にしたほうがわかりやすいです。要素ごとにイベントは様々で、実現したい機能に合わせてイベントを選択します。
-                </p>
-                <p class="item">演習の成果</p>
-                <ul class="link">
-                    <li><a href="practice-event/event-list.html"
-                        title="演習5-3"
-                        arget="_blank">演習5-3: イベントを選択する</a></li>
-                </ul>
-            </div>
+        <div class="box">
+            <h3>第4回 DOM と JavaScript</h3>
+            <p>第4回はDOMを用いたWebページの編集のしかたを学びました。
+                <br>DOMを使えばHTMLやSCCをプログラムで編集できるので、次の回で習うイベント処理と合わせればWebページに動的処理を実現できます。基本的にDOMを使う上では、HTMLファイルで各要素にidやclassを設定します。
+                <br>DOMはWebページを変更してしまうため、DOMを実装する際はエディターでJSファイルを直接編集せずに、先にWeb開発ツールを用いて動作確認をしたほうがいい。
+            </p>
+            <p class="item">演習の成果</p>
+            <ul class="link">
+                <li><a href="practice-dom/dom-exercise.html" title="演習4-2~4-5" target="_blank">演習4-2~4-5: DOMプログラミング</a>
+                </li>
+            </ul>
         </div>
 
-        <div class="border"></div>
-
-        <h2>工夫点, 苦心点, 強調点, 感想</h2>
-
-        <div class="container1">
-            <div class="box">
-                <p>1000文字以上</p>
-            </div>
+        <div class="box">
+            <h3>第5回 イベント処理</h3>
+            <p>第5回はWebページのイベント処理について学びました。
+                <br>イベント処理と第4回で学んだDOMを用いることで動きのあるWebページを作成することができます。
+                <br>イベント処理はWebページの要素(ボタンやセルなど)にイベントハンドラを登録することで実現します。イベントハンドラの名前はそのイベントハンドラの処理がわかるような名前にしたほうがわかりやすいです。要素ごとにイベントは様々で、実現したい機能に合わせてイベントを選択します。
+            </p>
+            <p class="item">演習の成果</p>
+            <ul class="link">
+                <li><a href="practice-event/event-list.html" title="演習5-3" arget="_blank">演習5-3: イベントを選択する</a></li>
+            </ul>
         </div>
+    </div>
 
-        <div class="border"></div>
+    <div class="border"></div>
 
-        <h2>参考文献</h2>
-        <ul id="ul"">
-            <li>あれば</li>
-        </ul>
-        
-    </body>
+    <h2>工夫点, 苦心点, 強調点, 感想</h2>
+
+    <div class="container1">
+        <div class="box">
+            <p>プロジェクト課題ついて書ききれなかったことをここに書きます。
+                <br>世界の天気を実施する上で、Webページに世界地図を表示しましたが、各地点の位置を単純にpxで指定すると、Webページのウィンドウサイズを変更したときにずれてしまうので、そうならないようにJSで各地点の位置を修正する関数を作成し、ウィンドウサイズが変更されても世界地図と各地点の位置関係が変わらないようにしています。その際に、各地点の位置を決める定数を格納したリストを作ることで、簡単かつわかりやすく各地点の位置調整ができるようになっています。さらに、位置の修正だけでなく、位置を示す点のサイズやフォントサイズ、アイコンサイズ、ボーダーラインの幅など、さまざまな要素の大きさ、デザインをウィンドウサイズが変更されても相対的な関係は変わらず、Webページを拡大・縮小するようにしました。
+                <br>また、第6回でAjax通信について学びましたが、プロジェクト課題では、最初にWebページを読み込む際に、全ての地点の天気データをサーバーから入手し、天気アイコンを各地点に表示しているので、Ajax通信はその際に一通り行っているわけです。そのため、以降通信して得られるデータは一度入手したことがあるデータなので、いっそのこと最初の通信で得たデータをプログラム内で保存して使いまわせば、最低限の通信で済ませられ、Webページの動作を早くなると思い、Webページ読み込み時の一斉通信のみ行っています。
+                <br>また、Webページの各地点の要素とデータの結び付けは、都市名と都市IDのペアをもつリストを作成し、各要素のIDを都市名にすることで行っています。そうすることで、リストを介して要素のIDから都市ID、都市IDから要素のIDと相互に変換することができます。
+                <br>また、天気の詳細をポップアップウィンドウ形式にすることでわかりやすく情報を表示していたりと、GUIについてはわかりやすさ、見やすさにこだわりました。
+                <br>他にも、ある程度プログラムが大きくなるとWebページの動作が表面上だけではわかりずらく、エラーが発生した際には修正が困難なので、Webページの動作一つ一つをログに出力するようにして、今Webページが何をしているのか、Webページの動作の可視化と、どこでどのタイミングでエラーが発生しているかわかりやすくしています。個人的にはログの書き出しは重要だと思っていて、ある箇所のプログラムを変更したときに自分では関係ないと思っていた箇所がエラーを出すことがあって、そういうときにログがないとWebページが何をしてたらエラーを出したのか自分の頭で探り出すのは難しいので、ログ出力によってどこでエラーが出たのかいち早く理解できるのは大きいと思います。しかも、ログはそのときの変数の値も出力できるので、エラーが起きた時の状況をより詳しく知ることができます。
+                <br>最後に、Webコンテンツ作成の感想ですが、Webページの作成は前から興味のあったことなので、かなりのめり込んで取り組めたと思います。授業の取り組み方も自由度が高くてよかったです。プロジェクト課題なんかはいい難易度かつ創造性のあるお題だと思うし、自由に作り込めるのはよかったです。自分たちB組は期末試験が全て終わってから1週間あったので時間に余裕があったのは大きいと思います。講義資料がわかりやすかったので、個人的には特に躓くこともなく授業を進められたかなと思います。かなりWebページ制作について詳しくなれたと思うのでよかったです。
+                1000文字以上</p>
+        </div>
+    </div>
+
+    <div class="border"></div>
+
+    <h2>参考文献</h2>
+    <div class="container1">
+        <div class="box">
+            <p class="p">多くのサイトを参考にさせてもらいましたが、私がレポートに参考文献欄があるのを忘れていたので実際に閲覧したサイト数の半分ぐらいしか記録できませんでした。</p>
+            <ul class="p">
+                <li>https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array</li>
+                <li>https://www.sejuku.net/blog/60444</li>
+                <li>https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector</li>
+                <li>https://webukatu.com/wordpress/blog/39350/</li>
+                <li>https://www.granfairs.com/blog/staff/centering-by-css</li>
+                <li>https://developer.mozilla.org/ja/docs/Web/CSS/scrollbar-width</li>
+                <li>https://web-de-asobo.net/2021/05/01/position/</li>
+                <li>http://www.openspc2.org/reibun/JavaScript_technique/sample/09_string/005/index.html</li>
+                <li>https://job-support.ne.jp/blog/css/howto-change-font</li>
+                <li>https://javascriptist.net/ref/image.onload.html</li>
+                <li>https://hirooooo-lab.com/development/get-imaage-size-by-js/</li>
+                <li>https://rilaks.jp/blog/website-creation/popup-css/</li>
+                <li>https://dev.classmethod.jp/articles/css-length-viewport/</li>
+                <li>https://tips-web.net/how-to-clickable-only-child-elements/</li>
+                <li>https://www.javadrive.jp/javascript/event/index11.html</li>
+                <li>https://developer.mozilla.org/ja/docs/Web/CSS/cursor</li>
+                <li>https://developer.mozilla.org/ja/docs/Web/CSS/pointer-events</li>
+                <li>https://www.koikikukan.com/archives/2012/08/20-005555.php</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
 </html>
