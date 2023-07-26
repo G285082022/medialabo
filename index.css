@@ -101,3 +101,7 @@ a:hover {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
 }
+
+div#impression {
+    margin: 0 10% 20px;
+}
